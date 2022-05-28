@@ -1,6 +1,89 @@
+/* This is basically my workspace styling file, it's compiled straight to css file with the same name right when I save it */
 * {
     margin: 0;
     padding: 0;
     font-family: 'Anek Latin', sans-serif;
     font-size: 1.5rem;
   }
+
+body{
+    background-color: rgb(204, 204, 204);
+    display: block;
+    min-height: 100vh;
+
+}
+
+.someTitle{
+    text-align: center;
+    padding: 10px;
+    height:100px;
+    h1{
+        font-size: 1.75rem;
+    }
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.calcContainer{
+    display:block;
+    background-color: grey;
+    width: 375px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 5px 5px 0 rgb(69, 69, 69);
+
+    
+}
+.resContainer{
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.resultsScreen{
+    display: flex;
+    background-color: green;
+    height: 70px;
+    width: 360px;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 0 6px 5px 0 rgb(69, 69, 69);
+    p{
+        margin: 0 10px;
+    }
+}
+.btns{
+    display: grid;
+    grid-template-columns: 75px 75px 75px 75px ;
+    grid-template-rows: 75px 75px 75px 75px 75px;
+    text-align: center;
+    grid-gap: 8px 20px;
+    height: 430px;
+    p{
+        
+        background-color: black;
+        color:white;
+        border-radius: 7px;
+        padding:16px;
+        margin: 0 0 4px 0;
+        box-shadow: 0 4px rgb(82, 82, 82);
+        border: none;
+        &:hover{
+            margin: 4px 0 0 0;
+            box-shadow:none;
+        }
+    }
+}
+
+.result{
+    grid-column: 3/5;
+
+}
+#resBtn{
+    background: rgb(0, 0, 174);
+}
+
+
+
