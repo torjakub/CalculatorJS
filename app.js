@@ -106,7 +106,7 @@ button.addEventListener('click',(e)=>{
             break
         
         default:
-            console.log('nie klikaj tu kurwa')
+            console.log('do not click here ')
     }
 
     //calc.firstNum calc.operator calc.secondNum
