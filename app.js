@@ -5,7 +5,7 @@ let calc ={
     firstNum: '' ,
     secondNum: '' ,
     operator: '',
-    resultOfOp: ''
+    gotResult: false
 
 }
 
@@ -26,8 +26,10 @@ button.addEventListener('click',(e)=>{
         case '8':
         case '9':
         case '00':
-            console.log(e.target.className)
-            if (signPressed === false){
+            if (signPressed === false && calc.gotResult == true){
+                calc.firstNum = e.target.className
+                calc.gotResult = false
+            } else if (signPressed === false && calc.gotResult == false){
                 calc.firstNum += e.target.className
             } else if (signPressed === true){
                 calc.secondNum += e.target.className
@@ -46,28 +48,33 @@ button.addEventListener('click',(e)=>{
         case 'result':
             switch(calc.operator){
                 case '+':
-                    calc.resultOfOp = (parseInt(calc.firstNum,10) + parseInt(calc.secondNum,10)).toString()
+                    calc.firstNum = (parseInt(calc.firstNum,10) + parseInt(calc.secondNum,10)).toString()
                     break
                 case '-':
-                    calc.resultOfOp = (parseInt(calc.firstNum,10) - parseInt(calc.secondNum,10)).toString()
+                    calc.firstNum = (parseInt(calc.firstNum,10) - parseInt(calc.secondNum,10)).toString()
                     break
                 case '%':
-                    calc.resultOfOp = (parseInt(calc.firstNum,10) / parseInt(calc.secondNum,10)).toString()
+                    calc.firstNum = (parseInt(calc.firstNum,10) / parseInt(calc.secondNum,10)).toString()
                     break
                 case '*':
-                    calc.resultOfOp = (parseInt(calc.firstNum,10) * parseInt(calc.secondNum,10)).toString()
+                    calc.firstNum = (parseInt(calc.firstNum,10) * parseInt(calc.secondNum,10)).toString()
                     break
             }
 
-            result.innerHTML = `<p> ${calc.resultOfOp}</p>`
+            result.innerHTML = `<p> ${calc.firstNum}</p>`
 
+            calc.secondNum = ''
+            calc.operator = ''
+
+            signPressed = false
+            calc.gotResult = true
+            break
+        case 'clear':
             calc.firstNum = ''
             calc.secondNum = ''
             calc.operator = ''
-            calc.resultOfOp = ''
-            signPressed = false
-            break
-        case 'clear':
+            calc.gotResult = false
+            result.innerHTML = `<p></p>`
             break
         case 'root':
             break
