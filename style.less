@@ -70,7 +70,7 @@ body{
         margin: 0 0 4px 0;
         box-shadow: 0 4px rgb(82, 82, 82);
         border: none;
-        &:hover{
+        &:active{
             margin: 4px 0 0 0;
             box-shadow:none;
         }
@@ -85,5 +85,11 @@ body{
     background: rgb(0, 0, 174);
 }
 
-
+.disable-select {
+    user-select: none;          /* supported by Chrome and Opera */
+   -webkit-user-select: none;   /* Safari */
+   -khtml-user-select: none;    /* Konqueror HTML */
+   -moz-user-select: none;      /* Firefox */
+   -ms-user-select: none;       /* Internet Explorer/Edge */
+}
 

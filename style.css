@@ -66,7 +66,7 @@ body {
   box-shadow: 0 4px #525252;
   border: none;
 }
-.btns p:hover {
+.btns p:active {
   margin: 4px 0 0 0;
   box-shadow: none;
 }
@@ -75,4 +75,16 @@ body {
 }
 #resBtn {
   background: #0000ae;
+}
+.disable-select {
+  user-select: none;
+  /* supported by Chrome and Opera */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
 }

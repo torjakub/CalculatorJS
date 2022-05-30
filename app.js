@@ -26,6 +26,7 @@ button.addEventListener('click',(e)=>{
         case '8':
         case '9':
         case '00':
+        case '.':
             if (signPressed === false && calc.gotResult == true){
                 calc.firstNum = e.target.className
                 calc.gotResult = false
@@ -46,20 +47,39 @@ button.addEventListener('click',(e)=>{
             break
 
         case 'result':
-            switch(calc.operator){
-                case '+':
-                    calc.firstNum = (parseInt(calc.firstNum,10) + parseInt(calc.secondNum,10)).toString()
-                    break
-                case '-':
-                    calc.firstNum = (parseInt(calc.firstNum,10) - parseInt(calc.secondNum,10)).toString()
-                    break
-                case '%':
-                    calc.firstNum = (parseInt(calc.firstNum,10) / parseInt(calc.secondNum,10)).toString()
-                    break
-                case '*':
-                    calc.firstNum = (parseInt(calc.firstNum,10) * parseInt(calc.secondNum,10)).toString()
-                    break
+            if(calc.secondNum == ''){
+                switch(calc.operator){
+                    case '+':
+                        calc.firstNum = (parseFloat(calc.firstNum,10) + parseFloat(calc.firstNum,10)).toString()
+                        break
+                    case '-':
+                        calc.firstNum = (parseFloat(calc.firstNum,10) - parseFloat(calc.firstNum,10)).toString()
+                        break
+                    case '%':
+                        calc.firstNum = (parseFloat(calc.firstNum,10) / parseFloat(calc.firstNum,10)).toString()
+                        break
+                    case '*':
+                        calc.firstNum = (parseFloat(calc.firstNum,10) * parseFloat(calc.firstNum,10)).toString()
+                        break
+                }
+            }else{
+                switch(calc.operator){
+                    case '+':
+                        calc.firstNum = (parseFloat(calc.firstNum,10) + parseFloat(calc.secondNum,10)).toString()
+                        break
+                    case '-':
+                        calc.firstNum = (parseFloat(calc.firstNum,10) - parseFloat(calc.secondNum,10)).toString()
+                        break
+                    case '%':
+                        calc.firstNum = (parseFloat(calc.firstNum,10) / parseFloat(calc.secondNum,10)).toString()
+                        break
+                    case '*':
+                        calc.firstNum = (parseFloat(calc.firstNum,10) * parseFloat(calc.secondNum,10)).toString()
+                        break
+                } 
             }
+            
+            
 
             result.innerHTML = `<p> ${calc.firstNum}</p>`
 
@@ -77,8 +97,12 @@ button.addEventListener('click',(e)=>{
             result.innerHTML = `<p></p>`
             break
         case 'root':
-            break
-        case '.':
+            if(signPressed == false){
+                calc.firstNum = Math.sqrt(calc.firstNum)
+            }else if(signPressed == true){
+                calc.secondNum = Math.sqrt(calc.secondNum)               
+            }
+            result.innerHTML = `<p> ${calc.firstNum} ${calc.operator} ${calc.secondNum}</p>`
             break
         
         default:
