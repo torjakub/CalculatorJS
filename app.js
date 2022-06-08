@@ -10,6 +10,7 @@ let calc ={
 }
 
 let signPressed = false;
+let rooted = false;
 
 button.addEventListener('click',(e)=>{
     //console.log(typeof(parseInt(e.target.className,10)) + " " + e.target.className)
@@ -102,6 +103,7 @@ button.addEventListener('click',(e)=>{
             }else if(signPressed == true){
                 calc.secondNum = Math.sqrt(calc.secondNum)               
             }
+            rooted = true;
             result.innerHTML = `<p> ${calc.firstNum} ${calc.operator} ${calc.secondNum}</p>`
             break
         

@@ -45,6 +45,9 @@ body {
   border-radius: 10px;
   align-items: center;
   box-shadow: 0 6px 5px 0 #454545;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .resultsScreen p {
   margin: 0 10px;
